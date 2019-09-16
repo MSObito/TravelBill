@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">旅行账单</string>
+    <string name="welcome_hint">Welcome to Trip Bill</string>
+    <string name="login">登录</string>
+    <string name="username">用户名</string>
+</resources>
