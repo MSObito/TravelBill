@@ -23,18 +23,18 @@ public class LoginActivity extends AppCompatActivity {
 
     private String username;
 
-    private void findComponents(){
-        usernameEditText= findViewById(R.id.usernameTextView);
-        loginButton= findViewById(R.id.loginButton);
+    private void findComponents() {
+        usernameEditText = findViewById(R.id.usernameTextView);
+        loginButton = findViewById(R.id.loginButton);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        String tempUsername=(String) SettingUtil.readSharedPreferences(this,Settings.username);
-        if(!Hints.EMPTY.getName().equals(tempUsername)){
-            toTripsActivity();
+        String tempUsername = (String) SettingUtil.readSharedPreferences(this, Settings.username);
+        if (!Hints.EMPTY.getName().equals(tempUsername)) {
+//            toTripsActivity();
         }
         findComponents();
         loginButton.setClickable(false);
@@ -42,12 +42,13 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                username=usernameEditText.getText().toString();
-                if(username.trim().isEmpty()){
-                    ToastUtil.showToast(LoginActivity.this, Hints.ERROR_USERNAME.getName());
+                username = usernameEditText.getText().toString();
+                if (username.trim().isEmpty()) {
+                    loginButton.setClickable(false);
+                    loginButton.setPressed(true);
                     return;
                 }
-                SettingUtil.writeSharedPreferences(LoginActivity.this, Settings.username,username);
+                SettingUtil.writeSharedPreferences(LoginActivity.this, Settings.username, username);
                 toTripsActivity();
             }
         });
@@ -64,21 +65,37 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if(!editable.toString().trim().isEmpty()){
-                    loginButton.setClickable(true);
-                    loginButton.setPressed(false);
-                }else{
-                    loginButton.setClickable(false);
-                    loginButton.setPressed(true);
+                if (!editable.toString().trim().isEmpty()) {
+                    setButtonUsable(true);
+                } else {
+                    setButtonUsable(false);
                 }
             }
         });
     }
 
-    void toTripsActivity(){
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        username = usernameEditText != null ? usernameEditText.getText().toString() : null;
+        if (null == username || username.trim().isEmpty()) {
+            setButtonUsable(false);
+        } else {
+            setButtonUsable(true);
+        }
+    }
+
+    void setButtonUsable(boolean b) {
+        if (null != loginButton) {
+            loginButton.setClickable(b);
+            loginButton.setPressed(!b);
+        }
+    }
+
+    void toTripsActivity() {
         LoginActivity.this.finish();
-        Intent intent=new Intent(LoginActivity.this,TripsActivity.class);
+        Intent intent = new Intent(LoginActivity.this, TripsActivity.class);
         startActivity(intent);
     }
-    
+
 }

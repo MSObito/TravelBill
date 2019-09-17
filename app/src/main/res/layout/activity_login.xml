@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="100dp">
+        android:layout_gravity="center"
+        android:layout_marginBottom="50dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,7 +31,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_gravity="center"
             android:layout_marginTop="50dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp">
@@ -48,6 +48,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_selector"
                 android:text="@string/login"
+                android:clickable="false"
                 android:textColor="@color/colorWhite"
                 android:layout_marginTop="10dp"/>
         </LinearLayout>
