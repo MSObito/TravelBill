@@ -1,8 +1,8 @@
 package com.obito.Activitys;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -13,20 +13,18 @@ import com.obito.Basic.Hints;
 import com.obito.R;
 import com.obito.model.Settings;
 import com.obito.utils.SettingUtil;
-import com.obito.utils.ToastUtil;
+
+import butterknife.BindView;
 
 public class LoginActivity extends AppCompatActivity {
 
+    @BindView(R.id.usernameTextView)
     private EditText usernameEditText;
 
+    @BindView(R.id.loginButton)
     private Button loginButton;
 
     private String username;
-
-    private void findComponents() {
-        usernameEditText = findViewById(R.id.usernameTextView);
-        loginButton = findViewById(R.id.loginButton);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +34,6 @@ public class LoginActivity extends AppCompatActivity {
         if (!Hints.EMPTY.getName().equals(tempUsername)) {
 //            toTripsActivity();
         }
-        findComponents();
         loginButton.setClickable(false);
         loginButton.setPressed(true);
         loginButton.setOnClickListener(new View.OnClickListener() {

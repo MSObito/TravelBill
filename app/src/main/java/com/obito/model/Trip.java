@@ -2,6 +2,9 @@ package com.obito.model;
 
 import java.util.List;
 
+import lombok.Data;
+
+@Data
 public class Trip extends BasicModel {
 
     /**
@@ -21,35 +24,4 @@ public class Trip extends BasicModel {
      */
     private List<TripMember> tripMemberList;
 
-    public String getTripId() {
-        return tripId;
-    }
-
-    public void setTripId(String tripId) {
-        this.tripId = tripId;
-    }
-
-    public String getTripName() {
-        return tripName;
-    }
-
-    public void setTripName(String tripName) {
-        this.tripName = tripName;
-    }
-
-    public Integer getMemberCount() {
-        return memberCount;
-    }
-
-    public void setMemberCount(Integer memberCount) {
-        this.memberCount = memberCount;
-    }
-
-    public List<TripMember> getTripMemberList() {
-        return tripMemberList;
-    }
-
-    public void setTripMemberList(List<TripMember> tripMemberList) {
-        this.tripMemberList = tripMemberList;
-    }
 }

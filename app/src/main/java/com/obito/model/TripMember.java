@@ -2,6 +2,9 @@ package com.obito.model;
 
 import java.util.List;
 
+import lombok.Data;
+
+@Data
 public class TripMember {
     /**
      * 表主键
@@ -20,35 +23,4 @@ public class TripMember {
      */
     private List<Member> memberList;
 
-    public String getRelationId() {
-        return relationId;
-    }
-
-    public void setRelationId(String relationId) {
-        this.relationId = relationId;
-    }
-
-    public String getTripId() {
-        return tripId;
-    }
-
-    public void setTripId(String tripId) {
-        this.tripId = tripId;
-    }
-
-    public String getMemberId() {
-        return memberId;
-    }
-
-    public void setMemberId(String memberId) {
-        this.memberId = memberId;
-    }
-
-    public List<Member> getMemberList() {
-        return memberList;
-    }
-
-    public void setMemberList(List<Member> memberList) {
-        this.memberList = memberList;
-    }
 }

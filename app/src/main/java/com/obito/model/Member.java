@@ -1,5 +1,8 @@
 package com.obito.model;
 
+import lombok.Data;
+
+@Data
 public class Member extends BasicModel {
 
     /**
@@ -15,27 +18,4 @@ public class Member extends BasicModel {
      */
     private Integer sex;
 
-    public String getMemberId() {
-        return memberId;
-    }
-
-    public void setMemberId(String memberId) {
-        this.memberId = memberId;
-    }
-
-    public String getMemberName() {
-        return memberName;
-    }
-
-    public void setMemberName(String memberName) {
-        this.memberName = memberName;
-    }
-
-    public Integer getSex() {
-        return sex;
-    }
-
-    public void setSex(Integer sex) {
-        this.sex = sex;
-    }
 }
