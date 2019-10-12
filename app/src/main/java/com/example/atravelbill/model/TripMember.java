@@ -1,8 +1,9 @@
-package com.obito.model;
+package com.example.atravelbill.model;
 
 import java.util.List;
 
 import lombok.Data;
+
 
 @Data
 public class TripMember {

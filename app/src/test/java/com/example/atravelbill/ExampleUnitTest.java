@@ -1,4 +1,4 @@
-package com.obito;
+package com.example.atravelbill;
 
 import org.junit.Test;
 

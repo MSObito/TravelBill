@@ -1,14 +1,14 @@
-package com.obito.model;
-
-import org.litepal.crud.LitePalSupport;
+package com.example.atravelbill.model;
 
 import java.util.Date;
+
 import lombok.Data;
 
 @Data
-public class BasicModel extends LitePalSupport {
+public class BasicModel {
     private Date createdDate;
     private String createdUser;
     private Date updatedDate;
     private String updatedUser;
+    private String isValid;
 }

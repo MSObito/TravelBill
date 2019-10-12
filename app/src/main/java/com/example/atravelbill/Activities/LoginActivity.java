@@ -1,35 +1,40 @@
-package com.obito.Activitys;
+package com.example.atravelbill.Activities;
+
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.obito.Basic.Hints;
-import com.obito.R;
-import com.obito.model.Settings;
-import com.obito.utils.SettingUtil;
+import androidx.appcompat.app.AppCompatActivity;
 
-import butterknife.BindView;
+import com.example.atravelbill.R;
+import com.example.atravelbill.basic.Hints;
+import com.example.atravelbill.model.Settings;
+import com.example.atravelbill.utils.SettingUtil;
+
 
 public class LoginActivity extends AppCompatActivity {
 
-    @BindView(R.id.usernameTextView)
     private EditText usernameEditText;
 
-    @BindView(R.id.loginButton)
     private Button loginButton;
 
     private String username;
+
+    private void findComponents(){
+        usernameEditText=findViewById(R.id.usernameEditText);
+        loginButton=findViewById(R.id.loginButton);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        findComponents();
         String tempUsername = (String) SettingUtil.readSharedPreferences(this, Settings.username);
         if (!Hints.EMPTY.getName().equals(tempUsername)) {
 //            toTripsActivity();
@@ -71,6 +76,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+
     @Override
     protected void onPostResume() {
         super.onPostResume();
@@ -94,5 +100,4 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(LoginActivity.this, TripsActivity.class);
         startActivity(intent);
     }
-
 }

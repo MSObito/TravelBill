@@ -1,8 +1,9 @@
-package com.obito.model;
+package com.example.atravelbill.model;
 
 import java.util.List;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
 public class Trip extends BasicModel {

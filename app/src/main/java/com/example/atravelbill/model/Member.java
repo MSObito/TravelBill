@@ -1,6 +1,8 @@
-package com.obito.model;
+package com.example.atravelbill.model;
+
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
 public class Member extends BasicModel {
@@ -9,6 +11,7 @@ public class Member extends BasicModel {
      * 主键
      */
     private String memberId;
+
     /**
      * 成员名字
      */
